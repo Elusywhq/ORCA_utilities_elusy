@@ -308,7 +308,7 @@ fi
 
 
 # ------ Source block_input
-  pwd=$(pwd)
+  pwd="$(dirname "$(readlink -f "$0")")"
   source $pwd/block_input
   initial_input > "$op"
 # ------ Define Keywords
