@@ -47,6 +47,7 @@ process_file() {
   z2 = zr*zr + zi*zi;
   printf("%.5e", sqrt(x2 + y2 + z2));
   }')
+  totSOCME_au=$(awk -v soc="$totSOCME" 'BEGIN { printf("%.5e", soc / 219474.6313705) }')
 
   # ---------------------------------- output ----------------------------------
   if [ $mode -eq 1 ]; then
@@ -63,6 +64,7 @@ process_file() {
 
     echo "********************************************************************************"
 
+    echo "Total SOCME (a.u.): $totSOCME_au"
     echo "Total SOCME: $totSOCME"
   fi
 }
