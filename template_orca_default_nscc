@@ -48,7 +48,8 @@ fi
 
 if grep -q "%Compound" $CurrDir/$input; then
   CMPFILE= `grep "%Compound" $CurrDir/$input | awk '{print $2}'`
-  cp $CurrDir/$CMPFILE $tdir/
+  echo "Compound file: $CMPFILE"
+  cp -v $CurrDir/$CMPFILE $tdir/
 fi
 
 
