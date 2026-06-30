@@ -46,6 +46,12 @@ if grep -q "* XYZFILE" $CurrDir/$input; then
   cp $CurrDir/$XYZFILE $tdir/
 fi
 
+if grep -q "%Compound" $CurrDir/$input; then
+  CMPFILE= `grep "%Compound" $CurrDir/$input | awk '{print $2}'`
+  cp $CurrDir/$CMPFILE $tdir/
+fi
+
+
 if [ -f ${input%.inp}.nodes  ]; then rm -rf ${input%.inp}.nodes ; fi ;
 #for i in $ncpus ; do
 cat $PBS_NODEFILE > ${input%.inp}.nodes
