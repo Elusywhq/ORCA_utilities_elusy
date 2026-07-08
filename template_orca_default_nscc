@@ -50,6 +50,8 @@ if grep -q "%Compound" $CurrDir/$input; then
   CMPFILE=`grep "Compound" $CurrDir/$input | awk '{print $2}' | tr -d '"'`
   echo "Compound file: $CMPFILE"
   cp -v $CurrDir/$CMPFILE $tdir/
+  sed -i "s/CURRENTD/$CurrDir/g" $tdir/$CMPFILE
+  sed -i "s/WORKDIR/$tdir/g" $tdir/$CMPFILE
 fi
 
 
